@@ -1,8 +1,11 @@
 // Requiring necessary npm packages
-var express = require("express");
-var session = require("express-session");
+const express = require("express");
+const session = require("express-session");
 // Requiring passport as we've configured it
-var passport = require("./config/passport");
+const passport = require("./config/passport");
+
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
@@ -17,6 +20,12 @@ app.use(express.static("public"));
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(cookieParser());
+// app.use(cookieSession({
+//   name: 'user',
+//   keys: ['123']
+// }));
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);

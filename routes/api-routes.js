@@ -26,12 +26,6 @@ module.exports = function(app) {
       });
   });
 
-  // Route for logging user out
-  app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
-  });
-
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
@@ -45,5 +39,41 @@ module.exports = function(app) {
         id: req.user.id
       });
     }
+  });
+
+  //google oauth routes
+  app.get("/", (req, res) => {
+    if (req.session.token) {
+      res.cookie("token", req.session.token);
+      res.json({
+        status: "session cookie set"
+      });
+    } else {
+      res.cookie("token", "");
+      res.json({
+        status: "session cookie not set"
+      });
+    }
+  });
+  app.get(
+    "/auth/google",
+    passport.authenticate("google", {
+      scope: ["https://www.googleapis.com/auth/userinfo.profile"]
+    })
+  );
+  app.get(
+    "/auth/google/callback",
+    passport.authenticate("google", { failureRedirect: "/" }),
+    (req, res) => {
+      req.session.token = req.user.token;
+      res.redirect("/");
+    }
+  );
+
+  // Route for logging user out
+  app.get("/logout", function(req, res) {
+    req.logout();
+    req.session = null;
+    res.redirect("/");
   });
 };

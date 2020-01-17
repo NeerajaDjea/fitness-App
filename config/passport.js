@@ -1,5 +1,6 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var db = require("../models");
 
@@ -33,6 +34,21 @@ passport.use(new LocalStrategy(
     });
   }
 ));
+
+passport.use(new GoogleStrategy({
+  clientID: "409910794983-piq511nrq73s4mfo74m94jb9sb1hsg3g.apps.googleusercontent.com",
+  clientSecret: "ByoPhpTMrdy0azLez_PNpJbX",
+  callbackURL: "http://localhost:8080/api/auth/google/callback"
+},
+(token, refreshToken, profile, done) => {
+  return done(null, {
+      profile: profile,
+      token: token
+  });
+}));
+
+
+
 
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
