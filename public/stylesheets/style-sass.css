@@ -125,9 +125,22 @@ body {
   cursor: pointer;
 }
 
+.splash-btn a {
+  text-decoration: none;
+  color: #da621e;
+}
+
 .splash-btn:hover {
   color: #f5f1e5;
   border: solid #f5f1e5 3px;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+}
+
+.splash-btn:hover a {
+  color: #f5f1e5;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   -webkit-transition: 1.5s;
