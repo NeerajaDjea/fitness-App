@@ -1,0 +1,17 @@
+body {
+    box-sizing: border-box;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(65, 63, 63);
+}
+
+.container {
+    border: 1px solid grey;
+    margin: 20px;
+    padding: 25px;
+    text-align: center;
+    background: linear-gradient( -128deg, #D79719 3%, #C0237C 88%, #A20C75 100%);
+}
