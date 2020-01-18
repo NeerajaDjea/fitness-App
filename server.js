@@ -5,7 +5,7 @@ const session = require("express-session");
 const passport = require("./config/passport");
 
 const cookieParser = require('cookie-parser');
-const cookieSession = require('cookie-session');
+// const cookieSession = require('cookie-session');
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
@@ -33,7 +33,7 @@ require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-  });
+    app.listen(PORT, function() {
+        console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+    });
 });
