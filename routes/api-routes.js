@@ -86,7 +86,7 @@ module.exports = function(app) {
             res.redirect("/");
         }
     );
-
+  
     // Route for logging user out
     app.get("/logout", function(req, res) {
         req.logout();
@@ -94,3 +94,11 @@ module.exports = function(app) {
         res.redirect("/");
     })
 }
+  // Route for logging user out
+  app.get("/logout", function(req, res) {
+    req.logout();
+    // req.session = null;
+    res.redirect("/");
+  });
+};
+
