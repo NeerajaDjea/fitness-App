@@ -26,37 +26,27 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     // Foreign key in userprofiles table
-    UserProfileId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
-  });
-
-  var UserProfile = sequelize.define("UserProfile", {
+    // UserProfileId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false
+    // }
     age: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
     gender: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    height: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     weight: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    activity: {
       type: DataTypes.DECIMAL,
-      allowNull: false
+      allowNull: true
+    },
+    targetWeight: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
     }
   });
-
-  UserProfile.hasOne(User);
-  User.belongsTo(UserProfile);
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {

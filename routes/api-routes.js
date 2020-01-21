@@ -27,15 +27,23 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
-  app.post("/api/calculator", function(req, res) {
-    db.UserProfile.create({
-      age: req.body.age,
-      weight: req.body.weight,
-      gender: req.body.gender,
-      height: req.body.height
-    })
+
+  app.patch("/api/editprofile", function(req, res) {
+    db.User.update(
+      {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+        age: req.body.age,
+        gender: req.body.gender,
+        weight: req.body.weight,
+        targetWeight: req.body.targetWeight
+      },
+      { where: { id: 1 } }
+    )
       .then(function() {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/api/members");
       })
       .catch(function(err) {
         res.status(401).json(err);

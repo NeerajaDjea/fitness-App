@@ -1,30 +1,38 @@
 $(document).ready(function() {
   // Getting references to our form and input
-  var signUpForm = $("form.signup");
+  var editProfileForm = $("form.editprofile");
   var firstNameInput = $("input#firstname-input");
   var lastNameInput = $("input#lastname-input");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
+  var ageInput = $("input#age-input");
+  var genderInput = $("input#gender-input");
+  var weightInput = $("input#weight-input");
+  var targetWeightInput = $("input#targetweight-input");
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function(event) {
+  editProfileForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim(),
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
+      age: ageInput.val().trim(),
+      gender: genderInput.val().trim(),
+      weight: weightInput.val().trim(),
+      targetWeight: targetWeightInput.val().trim()
     };
-
-    if (!userData.firstName || !userData.lastName || !userData.email || !userData.password) {
-      return;
-    }
     // If we have an email and password, run the signUpUser function
-    signUpUser(
+    editProfile(
       userData.firstName,
       userData.lastName,
       userData.email,
-      userData.password
+      userData.password,
+      userData.age,
+      userData.gender,
+      userData.weight,
+      userData.targetWeight
     );
 
     firstNameInput.val("");
@@ -35,12 +43,25 @@ $(document).ready(function() {
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(firstName, lastName, email, password) {
-    $.post("/api/signup", {
+  function editProfile(
+    firstName,
+    lastName,
+    email,
+    password,
+    age,
+    gender,
+    weight,
+    targetWeight
+  ) {
+    $.patch("/api/editprofile", {
       firstName: firstName,
       lastName: lastName,
       email: email,
-      password: password
+      password: password,
+      age: age,
+      gender: gender,
+      weight: weight,
+      targetWeight: targetWeight
     })
       .then(function() {
         window.location.replace("/members");
