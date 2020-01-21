@@ -1,0 +1,157 @@
+// asigning variables
+
+$gradientColor: linear-gradient(
+    -128deg,
+    (#D79719) 3%,
+    (#C0237C) 88%,
+    (#A20C75) 100%
+);
+
+$orange: #da621e;
+
+$creamWhite: #f5f1e5;
+
+$cyanBlue: #03b1cf;
+
+$black: #000000;
+
+@mixin backgroundDesktop{
+    background: linear-gradient(
+        (#00000065),
+        (#00000065)),
+        url(../assets/running-HD.jpg) center center / cover no-repeat fixed
+    ;
+    background-color: $gradientColor;
+}
+
+@mixin backgroundMobile{
+    background: linear-gradient(
+        (#00000033),
+        (#00000033)),
+        url(../assets/running-HD-mobile.jpg) center center / cover no-repeat fixed;
+    ;
+    background-color: $gradientColor;
+}
+
+@mixin header {
+    display: flex;
+    // justify-content: center;
+    margin: auto;
+    max-width: 100%;
+    background: $creamWhite;
+
+    .inn-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 70%;
+        margin: auto;
+        min-height: 8vh;
+        background: $creamWhite;
+        font-family: 'Poppins', sans-serif;
+    }
+}
+
+@mixin navLinks {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+  
+    li {
+      list-style: none;
+      padding: 20px 0;
+        &:hover {
+            transform: scale(1.4);
+            transition: 1.5s;
+        }
+    }
+  
+    a {
+        display: flex;
+        text-decoration: none;
+        letter-spacing: 3px;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+    }
+}
+
+//  SCSS/CSS styling
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    @include backgroundDesktop();
+    color: $creamWhite;
+}
+
+//white nav
+
+.main-header {
+    @include header();
+}
+
+.logo {
+  color: $black;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 25px;
+  width: 20%;
+}
+
+.nav-links {
+    @include navLinks();
+    a {
+        color: $orange;
+    }
+}
+
+//orange nav
+
+.links-header {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    background: $orange;
+}
+
+.profile-links {
+    @include navLinks();
+    width: 70%;
+    margin: auto;
+    // justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    a {
+        color: $creamWhite;
+    }
+}
+
+.container1 {
+    margin: 40px 0 10px 0;
+}
+
+h2 {
+    color: #f5f1e5;
+    font-family: 'Oswald', sans-serif;
+}
+
+// h2.member-name {
+//     color: #000000;
+//     font-family: 'Oswald', sans-serif;
+// }
+
+.container {
+    font-family: 'Oswald', sans-serif;
+    font-size: large;
+    margin: 5% auto;
+    padding: 0 15px;
+    width: 80%;
+}
+  
