@@ -39,7 +39,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/calculator");
     }
-    res.sendFile(path.join(__dirname, "../public/calculator.html"));
+    res.sendFile(path.join(__dirname, "../public/cal-calc.html"));
   });
 
   app.get("/editprofile", function(req, res) {

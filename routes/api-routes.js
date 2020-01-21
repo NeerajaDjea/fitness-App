@@ -34,13 +34,12 @@ module.exports = function(app) {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        password: req.body.password,
         age: req.body.age,
         gender: req.body.gender,
         weight: req.body.weight,
         targetWeight: req.body.targetWeight
       },
-      { where: { id: 1 } }
+      { where: { id: req.user.id } }
     )
       .then(function() {
         res.redirect(307, "/api/members");

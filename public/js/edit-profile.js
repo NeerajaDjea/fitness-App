@@ -4,7 +4,6 @@ $(document).ready(function() {
   var firstNameInput = $("input#firstname-input");
   var lastNameInput = $("input#lastname-input");
   var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
   var ageInput = $("input#age-input");
   var genderInput = $("input#gender-input");
   var weightInput = $("input#weight-input");
@@ -17,7 +16,6 @@ $(document).ready(function() {
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim(),
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim(),
       age: ageInput.val().trim(),
       gender: genderInput.val().trim(),
       weight: weightInput.val().trim(),
@@ -28,7 +26,6 @@ $(document).ready(function() {
       userData.firstName,
       userData.lastName,
       userData.email,
-      userData.password,
       userData.age,
       userData.gender,
       userData.weight,
@@ -38,7 +35,10 @@ $(document).ready(function() {
     firstNameInput.val("");
     lastNameInput.val("");
     emailInput.val("");
-    passwordInput.val("");
+    ageInput.val("");
+    genderInput.val("");
+    weightInput.val("");
+    targetWeightInput.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
@@ -47,7 +47,6 @@ $(document).ready(function() {
     firstName,
     lastName,
     email,
-    password,
     age,
     gender,
     weight,
@@ -57,7 +56,6 @@ $(document).ready(function() {
       firstName: firstName,
       lastName: lastName,
       email: email,
-      password: password,
       age: age,
       gender: gender,
       weight: weight,
