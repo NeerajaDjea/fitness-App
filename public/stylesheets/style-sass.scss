@@ -9,11 +9,13 @@ $orange: #da621e;
 
 $creamWhite: #f5f1e5;
 
+$cyanBlue: #03b1cf;
+
 @mixin backgroundDesktop{
     background: linear-gradient(
         (#00000033),
         (#00000033)),
-        url(../assets/running-HD.jpg) center center / cover no-repeat fixed;
+        url(../assets/running-HD.jpg) center center / cover no-repeat fixed
     ;
     background-color: $gradientColor;
 }
@@ -42,21 +44,31 @@ body {
     position: relative;
    
 }
-  
-.main-header {
+
+.main-header{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
     width: 100%;
-    min-height: 8vh;
     background: $creamWhite;
-    font-family: 'Poppins', sans-serif;
+
+    .inn-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 70%;
+        min-height: 8vh;
+        background: $creamWhite;
+        font-family: 'Poppins', sans-serif;
+    }
 }
+
   
 .logo {
     text-transform: uppercase;
+    text-align: center;
     letter-spacing: 5px;
     font-size: 20px;
+    width: 20%;
 }
   
 .nav-links {
@@ -138,8 +150,8 @@ body {
     }
 
     &:hover {
-        color: $creamWhite;
-        border: solid $creamWhite 3px;
+        color: $cyanBlue;
+        border: solid $cyanBlue 3px;
         transform: scale(1.2);
         transition: 1.5s;
 

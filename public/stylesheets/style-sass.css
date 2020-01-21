@@ -19,12 +19,24 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  background: #f5f1e5;
+}
+
+.main-header .inn-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
+  width: 70%;
   min-height: 8vh;
   background: #f5f1e5;
   font-family: 'Poppins', sans-serif;
@@ -32,8 +44,10 @@ body {
 
 .logo {
   text-transform: uppercase;
+  text-align: center;
   letter-spacing: 5px;
   font-size: 20px;
+  width: 20%;
 }
 
 .nav-links {
@@ -131,8 +145,8 @@ body {
 }
 
 .splash-btn:hover {
-  color: #f5f1e5;
-  border: solid #f5f1e5 3px;
+  color: #03b1cf;
+  border: solid #03b1cf 3px;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   -webkit-transition: 1.5s;
