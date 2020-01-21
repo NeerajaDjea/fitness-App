@@ -9,6 +9,7 @@ module.exports = function(app) {
     // Sends user to the splash page
     res.sendFile(path.join(__dirname, "../public/splash.html"));
   });
+
   app.get("/signup", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -24,32 +25,31 @@ module.exports = function(app) {
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
-  
-    app.get("/login", function(req, res) {
-        // If the user already has an account send them to the members page
-        if (req.user) {
-            res.redirect("/members");
-        }
-        res.sendFile(path.join(__dirname, "../public/login.html"));
-    });
-    app.get("/calculator", function(req, res) {
-        // If the user already has an account send them to the members page
-        if (req.user) {
-            res.redirect("/calculator");
-        }
-        res.sendFile(path.join(__dirname, "../public/calculator.html"));
-    });
-    // Here we've add our isAuthenticated middleware to this route.
-    // If a user who is not logged in tries to access this route they will be redirected to the signup page
-    app.get("/members", isAuthenticated, function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/members.html"));
-    });
 
-};
+  app.get("/login", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/members");
+    }
+    res.sendFile(path.join(__dirname, "../public/login.html"));
+  });
+
+  app.get("/calculator", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/calculator");
+    }
+    res.sendFile(path.join(__dirname, "../public/calculator.html"));
+  });
+
+  app.get("/editprofile", function(req, res) {
+    // Sends user to the edit profile page
+    res.sendFile(path.join(__dirname, "../public/edit-profile.html"));
+  });
+
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 };
-
