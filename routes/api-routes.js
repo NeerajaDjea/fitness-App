@@ -39,10 +39,10 @@ module.exports = function(app) {
         weight: req.body.weight,
         targetWeight: req.body.targetWeight
       },
-      { where: { id: req.user.id } }
+      { where: { email: req.body.email } }
     )
       .then(function() {
-        res.redirect(307, "/api/members");
+        res.redirect(303, "/members");
       })
       .catch(function(err) {
         res.status(401).json(err);

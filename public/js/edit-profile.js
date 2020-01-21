@@ -58,7 +58,7 @@ $(document).ready(function() {
     
     $.ajax({
       type: "PATCH",
-      url: "/api/editprofile",
+      url: "http://localhost:8080/api/editprofile",
       data: {
         firstName: firstName,
         lastName: lastName,
@@ -79,6 +79,7 @@ $(document).ready(function() {
     //   weight: weight,
     //   targetWeight: targetWeight
     // })
+    
       .then(function() {
         console.log("redirecting");
         
