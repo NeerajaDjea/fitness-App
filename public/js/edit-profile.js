@@ -79,6 +79,7 @@ $(document).ready(function() {
     //   weight: weight,
     //   targetWeight: targetWeight
     // })
+    
       .then(function() {
         console.log("redirecting");
         
