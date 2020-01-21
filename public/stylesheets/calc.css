@@ -6,44 +6,55 @@
         
         body {
             margin: auto;
-            background-image: url(../assets/running-HD.jpg);
+            background: linear-gradient(#0000006e, #0000006e), url(../assets/running-HD.jpg) center center/cover no-repeat fixed;
             font-size: medium;
         }
-        
-        h1 {
-            text-align: center;
-            color: rgb(43, 41, 41);
-        }
-        
+
         .container {
-            color: rgb(43, 41, 41);
+            color: #2B2929;
             display: flex;
             flex-direction: column;
             margin: 5% auto;
             text-align: center;
-            border: 1px solid grey;
-            width: 50%;
+            width: 30%;
             padding: 10px;
             text-align: center;
             background: linear-gradient( -128deg, #D79719 33%, #C0237C 88%, #A20C75 100%);
             border-radius: 6px;
         }
         
-        .sub-container {
-            margin: 4px;
-            padding: 5px,
+        h1 {
+            text-align: center;
+            color: #2B2929;
+        }
+        
+        
+        /* .sub-container {
+            margin: 5px;
+        } */
+
+        label {
+            margin-right: 10px;
+            vertical-align: middle;
         }
         
         input {
             border-radius: 4px;
-            background-color: rgb(241, 219, 190);
+            background-color: #f5f1e5;
+            text-align: right;
+            resize: vertical;
         }
         
         #calculate,
         #back {
             padding: 3px;
             border-radius: 5px;
-            background: rgb(241, 219, 190);
+            background: #f5f1e5;
+            width: 80%;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 900;
+            color: rgb(69, 23, 196);
         }
         
         #calculate:hover {
@@ -53,12 +64,18 @@
             transition: 1.5s;
         }
         
-        #Activity {
-            background-color: rgb(241, 219, 190);
+        #Activity option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f5f1e5;
+            /* width: 85%; */
+            overflow: auto;
         }
+
         
         .results {
-            color: rgb(43, 41, 41);
+            color: #2B2929;
             display: flex;
             flex-direction: column;
             margin: auto;
