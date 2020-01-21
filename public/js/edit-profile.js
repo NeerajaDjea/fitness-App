@@ -12,6 +12,8 @@ $(document).ready(function() {
   // When the signup button is clicked, we validate the email and password are not blank
   editProfileForm.on("submit", function(event) {
     event.preventDefault();
+    console.log("submitted");
+    
     var userData = {
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim(),
@@ -52,16 +54,34 @@ $(document).ready(function() {
     weight,
     targetWeight
   ) {
-    $.patch("/api/editprofile", {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      age: age,
-      gender: gender,
-      weight: weight,
-      targetWeight: targetWeight
+    console.log("patching");
+    
+    $.ajax({
+      type: "PATCH",
+      url: "/api/editprofile",
+      data: {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        age: age,
+        gender: gender,
+        weight: weight,
+        targetWeight: targetWeight
+      },
     })
+
+    // $.patch("/api/editprofile", {
+    //   firstName: firstName,
+    //   lastName: lastName,
+    //   email: email,
+    //   age: age,
+    //   gender: gender,
+    //   weight: weight,
+    //   targetWeight: targetWeight
+    // })
       .then(function() {
+        console.log("redirecting");
+        
         window.location.replace("/members");
         // If there's an error, handle it by throwing up a bootstrap alert
       })

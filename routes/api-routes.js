@@ -28,7 +28,7 @@ module.exports = function(app) {
       });
   });
 
-  app.patch("/api/editprofile", function(req, res) {
+  app.patch("/api/editprofile", function(req, res) {    console.log(req.user)
     db.User.update(
       {
         firstName: req.body.firstName,
