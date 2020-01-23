@@ -26,14 +26,6 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  app.get("/login", function(req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
-  });
-
   app.get("/calculator", function(req, res) {
     // If the user already has an account send them to the members page
     // if (req.user) {
@@ -43,8 +35,13 @@ module.exports = function(app) {
   });
 
   app.get("/editprofile", function(req, res) {
-    // Sends user to the edit profile page
+    // Sends user to the edit profile page  
     res.sendFile(path.join(__dirname, "../public/edit-profile.html"));
+  });
+
+  app.get("/recipe", function(req, res) {
+    // Sends user to the recipe ideas page  
+    res.sendFile(path.join(__dirname, "../public/recipe.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.

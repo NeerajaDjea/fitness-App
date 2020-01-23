@@ -46,7 +46,6 @@ calculate.addEventListener("click", function() {
   eResult2.innerHTML = weight2;
   eResult3.innerHTML = weight3;
 
-  addUserProfile(age, activity, gender, height, weight);
   //     Adult male:  = BMR
   // Adult female: 655 + (4.3 x weight in lbs.) + (4.7 x height in inches) - (4.7 x age in years) = BMR
 });
@@ -54,23 +53,3 @@ back.addEventListener("click", function() {
   calculator.style.display = "block";
   results.style.display = "none";
 });
-
-function addUserProfile(age, gender, height, weight, activity) {
-  $.post("/api/members", {
-    age: age,
-    gender: gender,
-    height: height,
-    weight: weight,
-    activity: activity
-  })
-    .then(function() {
-      window.location.replace("/members");
-      // If there's an error, handle it by throwing up a bootstrap alert
-    })
-    .catch(handleLoginErr);
-}
-
-function handleLoginErr(err) {
-  $("#alert .msg").text(err.responseJSON);
-  $("#alert").fadeIn(500);
-}

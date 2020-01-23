@@ -1,5 +1,5 @@
 const config = {
-    "development": {
+        "development": {
         "username": "root",
         "password": process.env.DB_PASS,
         "database": "fitness_db",
