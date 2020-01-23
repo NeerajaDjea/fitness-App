@@ -9,15 +9,13 @@
             background: linear-gradient(#0000006e, #0000006e), url(../assets/running-HD.jpg) center center/cover no-repeat fixed;
             font-size: medium;
         }
-
+        
         .container {
             color: #2B2929;
             display: flex;
             flex-direction: column;
             margin: 5% auto;
             text-align: center;
-            width: 30%;
-            padding: 10px;
             text-align: center;
             background: linear-gradient( -128deg, #D79719 33%, #C0237C 88%, #A20C75 100%);
             border-radius: 6px;
@@ -27,12 +25,10 @@
             text-align: center;
             color: #2B2929;
         }
-        
-        
         /* .sub-container {
             margin: 5px;
         } */
-
+        
         label {
             margin-right: 10px;
             vertical-align: middle;
@@ -50,11 +46,12 @@
             padding: 3px;
             border-radius: 5px;
             background: #f5f1e5;
-            width: 80%;
+            width: 50%;
             text-transform: uppercase;
             text-align: center;
-            font-weight: 900;
+            font-weight: 800;
             color: rgb(69, 23, 196);
+            margin: 10px auto;
         }
         
         #calculate:hover {
@@ -72,16 +69,15 @@
             /* width: 85%; */
             overflow: auto;
         }
-
         
         .results {
             color: #2B2929;
             display: flex;
             flex-direction: column;
-            margin: auto;
+            margin: 10px auto;
             text-align: center;
             border: 1px solid grey;
-            width: 50%;
+            width: 80%;
             padding: 5px;
             text-align: center;
             background: linear-gradient( -128deg, #D79719 33%, #C0237C 88%, #A20C75 100%);
@@ -132,4 +128,53 @@
         .smalltext {
             color: #888;
             font-size: small;
+        }
+        
+        @media screen and (max-width: 1024px) {
+            .nav-links {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-pack: distribute;
+                justify-content: space-around;
+                width: 30%;
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            body {
+                background: -webkit-gradient(linear, left top, left bottom, from(#00000033), to(#00000033)), url(../assets/running-HD-mobile.jpg) center center/cover no-repeat fixed;
+                background: linear-gradient(#00000033, #00000033), url(../assets/running-HD-mobile.jpg) center center/cover no-repeat fixed;
+                background-color: linear-gradient(-128deg, #D79719 3%, #C0237C 88%, #A20C75 100%);
+            }
+            .main-header {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+            .main-header .logo {
+                padding: 5px 0;
+            }
+            .main-header .nav-links {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-pack: distribute;
+                justify-content: space-around;
+                width: 70%;
+            }
+            .main-header .nav-links li {
+                padding: 5px 0;
+            }
+            .heading {
+                text-align: center;
+            }
+        }
+        
+        #Activity {
+            width: 50%
         }
