@@ -1,5 +1,5 @@
 const config = {
-    "development": {
+        "development": {
         "username": "root",
         "password": "MyNewPass",
         "database": "fitness_db",
