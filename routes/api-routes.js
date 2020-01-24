@@ -55,11 +55,17 @@ module.exports = function(app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user's email and id
+      // Otherwise send back the user's details
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
+        age: req.user.age,
+        gender: req.user.gender,
+        weight: req.user.weight,
+        targetWeight: req.user.targetWeight
       });
     }
   });

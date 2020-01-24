@@ -1,21 +1,21 @@
 const config = {
         "development": {
         "username": "root",
-        "password": "MyNewPass",
+        "password": process.env.DB_PASS,
         "database": "fitness_db",
         "host": process.env.DB_HOST,
         "dialect": "mysql"
     },
     "test": {
         "username": "root",
-        "password": null,
+        "password": process.env.DB_PASS,
         "database": "database_test",
         "host": process.env.DB_HOST,
         "dialect": "mysql"
     },
     "production": {
         "username": "root",
-        "password": null,
+        "password": process.env.DB_PASS,
         "database": "database_production",
         "host": process.env.DB_HOST,
         "dialect": "mysql"

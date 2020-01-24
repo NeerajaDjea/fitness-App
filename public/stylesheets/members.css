@@ -159,6 +159,15 @@ h2 {
     text-align: center;
 }
 
+.members-details-container {
+    font-family: 'Oswald', sans-serif;
+    font-size: large;
+    margin: 5% auto;
+    padding: 0 15px;
+    width: 80%;
+    text-align: center;
+}
+
 .frame {
     text-align: center;
 }
