@@ -154,4 +154,129 @@ h2 {
     padding: 0 15px;
     width: 80%;
 }
+
+
+///Workout css
+.heading {
+    color:$creamWhite;
+}
+
+
+.media {
+    display: flex;
+    justify-content: space-around;
+}
   
+.media-body {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 10px;
+    /* left: 100px; */
+    width: 30%;
+}
+  
+img {
+    .media-object {
+        max-width: 100%;
+        max-height: 100%;
+     }
+}
+  
+.media-left {
+    width: 60px;
+    height: 60px;
+}
+  
+.media-heading {
+    /* padding-left: 20px; */
+    text-align: center;
+    color: #009879;
+    width: 100%
+}
+  
+.text-muted {
+    /* padding-left: 20px; */
+    font-size: 15px;
+    text-align: center;
+}
+  /*# sourceMappingURL=members.css.map */
+  
+  /* tabs exercise section workout page */
+  
+.tabs {
+/* border: 1px solid #cccccc; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%
+}
+  
+.inner-box {
+    border-radius: 5px;
+}
+  
+.tabs__sidebar {
+    display: flex;
+    width: 100%;
+    flex-shrink: 0;
+    background: #cccccc;
+}
+  
+.tabs__btn {
+    /* display: block; */
+    color: #5c5c5c;
+    padding: 10px;
+    background: #eeeeee;
+    /* border: 2px solid blueviolet;
+    border-radius: 5px; */
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+}
+
+.tabs__btn:active {
+    background: #dddddd;
+    /* border-radius: 5px; */
+}
+  
+.tabs__btn:not(:last-of-type) {
+    border-bottom: 1px solid #cccccc;
+    /* border-radius: 5px; */
+}
+
+.tabs__btn--active {
+    font-weight: bold;
+    border-right: 2px solid #009879;
+    border-radius: 5px;
+    background: #dddddd;
+}
+
+.tabs__content {
+    /* padding: 15px; */
+    font-size: 0.8rem;
+    display: none;
+}
+
+.tabs__content--active {
+    display: block;
+}
+
+.tabs__content > :first-child {
+    margin-top: 0;
+}
+
+.list-group-item {
+        background-color: #effeff;
+}
+
+.tab__sidebar {
+width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .tabs__sidebar {
+        flex-wrap: wrap;
+    }
+}
