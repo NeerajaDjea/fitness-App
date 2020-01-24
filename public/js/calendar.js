@@ -7,7 +7,7 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
-var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+var SCOPES = "https://www.googleapis.com/auth/calendar";
 
 var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
@@ -38,26 +38,14 @@ function initClient() {
         authorizeButton.onclick = handleAuthClick;
         signoutButton.onclick = handleSignoutClick;
 
-        var profile = window.gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile();
-        var email = profile.getEmail();
-        var encodedEmail = encodeURIComponent(email);
-        var url = `https://calendar.google.com/calendar/embed?src=${encodedEmail}&ctz=Europe%2FLondon`;
 
-        function addElement() {
-            console.log('the iframe was added');
-            var iframe = document.createElement("iframe");
-            iframe.setAttribute('src', url);
-            iframe.setAttribute('style', "border: 0");
-            iframe.setAttribute("height", "600");
-            iframe.setAttribute("width", "1000");
-            console.log(iframe);
-            document.querySelector('.container').insertBefore(iframe, document.querySelector('#authorize_button'));
-        }
-        addElement();
+
+        loadCalendar();
     }, function(error) {
         appendPre(JSON.stringify(error, null, 2));
     });
 }
+
 
 /**
  *  Called when the signed in status changes, to update the UI
@@ -90,6 +78,25 @@ function handleSignoutClick(event) {
     console.log(event)
 }
 
+function loadCalendar() {
+    var profile = window.gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile();
+    var email = profile.getEmail();
+    var encodedEmail = encodeURIComponent(email);
+    var url = `https://calendar.google.com/calendar/embed?src=${encodedEmail}&ctz=Europe%2FLondon`;
+
+
+    console.log('the iframe was added');
+    var iframe = document.createElement("iframe");
+    iframe.setAttribute('src', url);
+    iframe.setAttribute('style', "border: 0");
+    iframe.setAttribute("height", "600");
+    iframe.setAttribute("width", "1000");
+    console.log(iframe);
+    var cal = document.getElementById("calendarHolder");
+    cal.innerHTML = " ";
+    cal.appendChild(iframe);
+    listUpcomingEvents();
+}
 /**
  * Append a pre element to the body containing the given message
  * as its text node. Used to display the results of the API call.
@@ -116,6 +123,7 @@ function listUpcomingEvents() {
         'maxResults': 10,
         'orderBy': 'startTime'
     }).then(function(response) {
+        document.getElementById('content').innerHTML = "";
         var events = response.result.items;
         appendPre('Upcoming events:');
 
@@ -134,8 +142,43 @@ function listUpcomingEvents() {
     });
 }
 
+function addNewEvent(eventTitle) {
+    if (!eventTitle) {
+        return
+    }
+    var event = {
+        'summary': eventTitle,
+        'location': '800 Howard St., San Francisco, CA 94103',
+        'description': 'A chance to hear more about Google\'s developer products.',
+        'start': {
+            'dateTime': '2020-01-27T09:00:00-07:00',
+            'timeZone': 'America/Los_Angeles'
+        },
+        'end': {
+            'dateTime': '2020-01-27T17:00:00-07:00',
+            'timeZone': 'America/Los_Angeles'
+        },
+        'recurrence': [
+            'RRULE:FREQ=DAILY;COUNT=2'
+        ],
+        'reminders': {
+            'useDefault': false,
+            'overrides': [
+                { 'method': 'email', 'minutes': 24 * 60 },
+                { 'method': 'popup', 'minutes': 10 }
+            ]
+        }
+    };
+    var request = window.gapi.client.calendar.events.insert({
+        'calendarId': 'primary',
+        'resource': event
+    })
+    request.execute(function() {
+        loadCalendar();
+    })
+}
 
-
+addNewEvent(false);
 // 
 // url encode the email
 //
