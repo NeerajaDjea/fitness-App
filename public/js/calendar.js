@@ -12,9 +12,24 @@ var SCOPES = "https://www.googleapis.com/auth/calendar";
 var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
 
-/**
- *  On load, called to load the auth2 library and API client library.
- */
+var title = document.getElementById('title');
+var dateTime = document.getElementById('date');
+var time = document.getElementById('time')
+var submit = document.getElementById('addEvent')
+
+
+submit.addEventListener('click', event => {
+        event.preventDefault()
+        var newTime = `T` + time.value + `:00`
+
+
+        addNewEvent(title.value, dateTime.value + newTime)
+
+
+    })
+    /**
+     *  On load, called to load the auth2 library and API client library.
+     */
 window.handleClientLoad = function() {
     window.gapi.load('client:auth2', initClient);
 }
@@ -125,7 +140,7 @@ function listUpcomingEvents() {
     }).then(function(response) {
         document.getElementById('content').innerHTML = "";
         var events = response.result.items;
-        appendPre('Upcoming events:');
+        appendPre('UPCOMING EVENTS :');
 
         if (events.length > 0) {
             for (var i = 0; i < events.length; i++) {
@@ -134,7 +149,7 @@ function listUpcomingEvents() {
                 if (!when) {
                     when = event.start.date;
                 }
-                appendPre(event.summary + ' (' + when + ')')
+                appendPre(event.summary + ' ' + ' (' + when + ')')
             }
         } else {
             appendPre('No upcoming events found.');
@@ -142,21 +157,20 @@ function listUpcomingEvents() {
     });
 }
 
-function addNewEvent(eventTitle) {
-    if (!eventTitle) {
+function addNewEvent(title, dateTime) {
+    if (!title) {
         return
     }
     var event = {
-        'summary': eventTitle,
-        'location': '800 Howard St., San Francisco, CA 94103',
-        'description': 'A chance to hear more about Google\'s developer products.',
+
+        'summary': title,
         'start': {
-            'dateTime': '2020-01-27T09:00:00-07:00',
-            'timeZone': 'America/Los_Angeles'
+            'dateTime': dateTime,
+            'timeZone': 'GMT'
         },
         'end': {
-            'dateTime': '2020-01-27T17:00:00-07:00',
-            'timeZone': 'America/Los_Angeles'
+            'dateTime': dateTime,
+            'timeZone': 'GMT'
         },
         'recurrence': [
             'RRULE:FREQ=DAILY;COUNT=2'
@@ -179,6 +193,7 @@ function addNewEvent(eventTitle) {
 }
 
 addNewEvent(false);
+
 // 
 // url encode the email
 //
