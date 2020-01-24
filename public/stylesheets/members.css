@@ -172,5 +172,13 @@ h2 {
     text-align: center;
 }
 
+input {
+    color: black;
+}
+
+#eventInput {
+    margin: 5px;
+}
+
 
 /*# sourceMappingURL=members.css.map */

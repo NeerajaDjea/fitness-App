@@ -32,12 +32,21 @@
         </ul>
     </div>
     <div class="container">
-        <h1> Calendar</h1>
-
+        <!-- <h2> Calendar</h2> -->
+        <div id="calendarHolder"></div>
 
         <!--Add buttons to initiate auth sequence and sign out-->
-        <button id="authorize_button" style="display: none;color: black;">Authorize</button>
-        <button id="signout_button" style="display: none;color:black">Sign Out</button>
+        <button id="authorize_button" style="display: none;color: rgb(59, 58, 58)">Authorize</button>
+        <button id="signout_button" style="display: none;color:rgb(59, 58, 58)">Sign Out</button>
+
+        <form name="eventInput" id="eventInput">
+            <input type="" id="title" placeholder="event">
+            <input type="" id="date" placeholder="YYYY-MM-DD">
+            <input type="" id="time" placeholder="hh:mm">
+            <br>
+            <button type="submit" id="addEvent" style=color:black>Add an Event</button>
+        </form>
+
 
         <pre id="content" style="white-space: pre-wrap;"></pre>
     </div>
