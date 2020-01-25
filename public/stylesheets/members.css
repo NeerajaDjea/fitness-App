@@ -200,6 +200,23 @@ h2 {
           align-items: center;
 }
 
+.inputs {
+  padding: 5px;
+  font-family: 'Oswald', sans-serif;
+  margin: 5px;
+}
+
+#addEvent {
+  color: #c7520f;
+  font-family: 'Oswald', sans-serif;
+  padding: 5px;
+  margin: 5px;
+}
+
+#content {
+  margin: 5px;
+}
+
 .container {
   font-family: 'Oswald', sans-serif;
   font-size: large;
