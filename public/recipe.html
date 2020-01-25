@@ -16,7 +16,7 @@
 
     <nav class="main-header">
         <div class="inn-nav">
-            <span class="logo"> logo </span>
+            <span class="logo"> Fit Point </span>
             <ul class="nav-links">
                 <li><a href="/logout"> Log Out </a></li>
             </ul>
@@ -27,16 +27,16 @@
     <div class="links-header">
         <ul class="profile-links">
             <li><a class="calender" href="/schedule"> Schedule </a></li>
-            <li><a class="a" href="#"> Exercises </a></li>
-            <li><a class="workout" href="/calculator"> Calorie Calculator </a></li>
-            <li><a class="c" href="/recipe"> Recipe ideas</a></li>
+            <li><a class="workout" href="/workout"> Exercises </a></li>
+            <li><a class="calc" href="/calculator"> Calorie Calculator </a></li>
+            <li><a class="recipe" href="/recipe"> Recipe ideas</a></li>
         </ul>
     </div>
 
     <div class="container1">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <div class="container">
+                <div class="container-recipes">
                     <h1>Recipe Ideas</h1>
                     <br>Enter an ingredient here..
                     <form name="recipeSearch" id="recipeSearch">
@@ -44,6 +44,7 @@
                         <br>
                         <button type="submit" id="retrieveRecipes">Retrieve</button>
                     </form>
+                    <br>
                     <div id="recipesReturned"></div>
                 </div>
             </div>
