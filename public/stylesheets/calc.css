@@ -1,185 +1,247 @@
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            margin: auto;
-            background: linear-gradient(#0000006e, #0000006e), url(../assets/running-HD.jpg) center center/cover no-repeat fixed;
-            font-size: medium;
-        }
-        
-        .container {
-            color: #2B2929;
-            display: flex;
-            flex-direction: column;
-            margin: 5% auto;
-            text-align: center;
-            text-align: center;
-            border: 2px solid #f5f1e5;
-            border-radius: 6px;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: 2px;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #f5f1e5;
-        }
-        /* .sub-container {
-            margin: 5px;
-        } */
-        
-        label {
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-        
-        input {
-            border-radius: 4px;
-            background-color: #f5f1e5;
-            text-align: right;
-            resize: vertical;
-        }
-        
-        #calculate,
-        #back {
-            padding: 3px;
-            border-radius: 5px;
-            background: #f5f1e5;
-            width: 40%;
-            text-transform: uppercase;
-            text-align: center;
-            font-weight: 800;
-            color: #c7520f;
-            margin: 10px auto;
-        }
-        
-        #calculate:hover {
-            -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-            -webkit-transition: 1.5s;
-            transition: 1.5s;
-        }
-        
-        #Activity option {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f5f1e5;
-            /* width: 85%; */
-            overflow: auto;
-        }
-        
-        .results {
-            color: #2B2929;
-            display: flex;
-            flex-direction: column;
-            margin: 10px auto;
-            text-align: center;
-            border: 2px solid #f5f1e5;
-            width: 80%;
-            padding: 5px;
-            text-align: center;
-            border-radius: 6px;
-            display: none;
-        }
-        
-        table {
-            display: table;
-            border-collapse: separate;
-            white-space: normal;
-            line-height: normal;
-            font-weight: normal;
-            font-size: larger;
-            font-style: normal;
-            text-align: start;
-            border-spacing: 2px;
-            border-color: grey;
-            font-variant: normal;
-            margin: auto;
-        }
-        
-        .arrow_box {
-            position: relative;
-            background: #e3edda;
-            border: 1px solid #aaa;
-            padding: 3px 8px;
-            text-align: center;
-        }
-        
-        .result_box {
-            background: #e3edda;
-            border: 1px solid #8db46d;
-            padding: 3px 8px;
-            text-align: center;
-        }
-        
-        .kg {
-            color: #888;
-            font-size: small;
-        }
-        
-        .cl {
-            color: #888;
-            font-size: small;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        p {
-            color: #f5f1e5;
-        }
-        
-        .smalltext {
-            color: #888;
-            font-size: small;
-        }
-        
-        @media screen and (max-width: 1024px) {
-            .nav-links {
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -ms-flex-pack: distribute;
-                justify-content: space-around;
-                width: 30%;
-            }
-        }
-        
-        @media screen and (max-width: 600px) {
-            body {
-                background: -webkit-gradient(linear, left top, left bottom, from(#00000033), to(#00000033)), url(../assets/running-HD-mobile.jpg) center center/cover no-repeat fixed;
-                background: linear-gradient(#00000033, #00000033), url(../assets/running-HD-mobile.jpg) center center/cover no-repeat fixed;
-                background-color: linear-gradient(-128deg, #D79719 3%, #C0237C 88%, #A20C75 100%);
-            }
-            .main-header {
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-box-orient: vertical;
-                -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                flex-direction: column;
-            }
-            .main-header .logo {
-                padding: 5px 0;
-            }
-            .main-header .nav-links {
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -ms-flex-pack: distribute;
-                justify-content: space-around;
-                width: 70%;
-            }
-            .main-header .nav-links li {
-                padding: 5px 0;
-            }
-            .heading {
-                text-align: center;
-            }
-        }
-        
-        #Activity {
-            width: 50%
-        }
+body {
+    margin: auto;
+    background: linear-gradient(#0000006e, #0000006e), url(../assets/running-HD.jpg) center center/cover no-repeat fixed;
+    font-size: medium;
+}
+
+.main-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+    max-width: 100%;
+    background: #f5f1e5;
+}
+  
+.main-header .inn-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+    min-height: 8vh;
+    background: #f5f1e5;
+    font-family: 'Poppins', sans-serif;
+}
+  
+.logo {
+    color: #000000;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 25px;
+    width: 20%;
+}
+  
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+}
+  
+.nav-links li {
+    list-style: none;
+    padding: 20px 0;
+}
+  
+.nav-links li:hover {
+    transform: scale(1.4);
+    transition: 1.5s;
+}
+  
+.nav-links a {
+    display: flex;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+  
+.nav-links a {
+    color: #da621e;
+}
+  
+
+.container {
+    color: #2B2929;
+    display: flex;
+    flex-direction: column;
+    margin: 5% auto;
+    text-align: center;
+    text-align: center;
+    border: 2px solid #f5f1e5;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+}
+
+h1 {
+    text-align: center;
+    color: #f5f1e5;
+}
+/* .sub-container {
+    margin: 5px;
+} */
+
+label {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+input {
+    border-radius: 4px;
+    background-color: #f5f1e5;
+    text-align: right;
+    resize: vertical;
+}
+
+#calculate,
+#back {
+    padding: 3px;
+    border-radius: 5px;
+    background: #f5f1e5;
+    width: 40%;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    color: #c7520f;
+    margin: 10px auto;
+}
+
+#calculate:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: 1.5s;
+    transition: 1.5s;
+}
+
+#Activity option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f1e5;
+    /* width: 85%; */
+    overflow: auto;
+}
+
+.results {
+    color: #2B2929;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #f5f1e5;
+    width: 80%;
+    padding: 5px;
+    text-align: center;
+    border-radius: 6px;
+    display: none;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: larger;
+    font-style: normal;
+    text-align: start;
+    border-spacing: 2px;
+    border-color: grey;
+    font-variant: normal;
+    margin: auto;
+}
+
+.arrow_box {
+    position: relative;
+    background: #e3edda;
+    border: 1px solid #aaa;
+    padding: 3px 8px;
+    text-align: center;
+}
+
+.result_box {
+    background: #e3edda;
+    border: 1px solid #8db46d;
+    padding: 3px 8px;
+    text-align: center;
+}
+
+.kg {
+    color: #888;
+    font-size: small;
+}
+
+.cl {
+    color: #888;
+    font-size: small;
+}
+
+p {
+    color: #f5f1e5;
+}
+
+.smalltext {
+    color: #888;
+    font-size: small;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background: -webkit-gradient(linear, left top, left bottom, from(#00000033), to(#00000033)), url(../assets/running-HD-mobile.jpg) center center/cover no-repeat fixed;
+        background: linear-gradient(#00000033, #00000033), url(../assets/running-HD-mobile.jpg) center center/cover no-repeat fixed;
+        background-color: linear-gradient(-128deg, #D79719 3%, #C0237C 88%, #A20C75 100%);
+    }
+    .main-header {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    .main-header .logo {
+        padding: 5px 0;
+    }
+    .main-header .nav-links {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        width: 70%;
+    }
+    .main-header .nav-links li {
+        padding: 5px 0;
+    }
+    .heading {
+        text-align: center;
+    }
+}
+
+#Activity {
+    width: 50%
+}
