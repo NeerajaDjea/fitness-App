@@ -14,6 +14,8 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
+    /* It might be good to check the req.body has what you are expecting
+    , and is of the form you expect. */
     db.User.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -29,6 +31,11 @@ module.exports = function(app) {
   });
 
   app.patch("/api/editprofile", function(req, res) {    console.log(req.user)
+    /* This was a nice touch to add the ability to edit a profile. 
+      It would be good to check your input before running the update, just to check
+      that the data is good on the req.body.
+    */
+
     db.User.update(
       {
         firstName: req.body.firstName,
@@ -94,7 +101,8 @@ module.exports = function(app) {
     "/auth/google/callback",
     passport.authenticate("google", { failureRedirect: "/" }),
     (req, res) => {
-      req.session.token = req.user.token;
+      req.session.token = req.user.token; /* not sure that this is doing anything. I've just read the res.redirect 
+      docs and there is no mention that the request is passed on to the next place.*/
       res.redirect("/");
     }
   );

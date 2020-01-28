@@ -37,8 +37,16 @@ passport.use(new LocalStrategy(
 
 passport.use(new GoogleStrategy({
   clientID: "409910794983-piq511nrq73s4mfo74m94jb9sb1hsg3g.apps.googleusercontent.com",
-  clientSecret: "ByoPhpTMrdy0azLez_PNpJbX",
-  callbackURL: "http://localhost:8080/api/auth/google/callback"
+  clientSecret: "ByoPhpTMrdy0azLez_PNpJbX", 
+  /* If this secret is something that is meant to be totally "secret" 
+  then it would be better to keep it stored in your .env file so that
+   it isn't made public */
+  callbackURL: "http://localhost:8080/api/auth/google/callback" 
+  /* localhost is only used in development stage. For production (and therefore on heroku)
+  you would need to use the address of the live site here instead. Either using a .env file
+  or getting the host name via 
+  const url = require('url');
+  and using url.host (or something like that :) */
 },
 (token, refreshToken, profile, done) => {
   return done(null, {
