@@ -42,11 +42,8 @@ passport.use(new GoogleStrategy({
   then it would be better to keep it stored in your .env file so that
    it isn't made public */
   callbackURL: "http://localhost:8080/api/auth/google/callback" 
-  /* localhost is only used in development stage. For production (and therefore on heroku)
-  you would need to use the address of the live site here instead. Either using a .env file
-  or getting the host name via 
-  const url = require('url');
-  and using url.host (or something like that :) */
+  /* It is best to use relative paths here e.g. /api/auth/... rather than
+  hardcode in a full url (unless it's an external one*/
 },
 (token, refreshToken, profile, done) => {
   return done(null, {
