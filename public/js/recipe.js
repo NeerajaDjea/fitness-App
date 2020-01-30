@@ -9,6 +9,7 @@ recipeSearch.addEventListener(`submit`, event => {
 
   fetch(
     `https://api.spoonacular.com/recipes/search?query=${ingredient}&number=2&apiKey=8dff213c6f504036afb72d6ad4294207`
+    /* again, try to keep api keys in a .env file */
   )
     .then(response => response.json())
     .then(({ results }) => {
@@ -44,6 +45,8 @@ function createRecipeNodes(results) {
   results.map(recipe => {
     const { id, title, readyInMinutes, servings, image } = recipe;
 
+    /* It would be nice to have a link to spoonacular's recipe page to make this part of the site more 
+    user friendly and useful. */
     const recipeNode = `
       <div class="recipe-card" id="recipe-${id}">
         <img src="https://spoonacular.com/recipeImages/${image}" class="photo" title="Photo of ${title}" />

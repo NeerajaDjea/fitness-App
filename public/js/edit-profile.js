@@ -1,4 +1,12 @@
 $(document).ready(function() {
+/* What would be really nice here is if you did a Fetch to get the current user's profile and
+pre populate the input's with the user's details. That way the user knows what they have in 
+their profile and can update only the ones they want to change.
+
+Also if the email is crucial to updating correctly then you could disable the email field (or 
+get rid of it completely) so that the user can't mess things up.
+*/
+
   // Getting references to our form and input
   var editProfileForm = $("form.editprofile");
   var firstNameInput = $("input#firstname-input");
@@ -58,7 +66,7 @@ $(document).ready(function() {
     
     $.ajax({
       type: "PATCH",
-      url: "http://localhost:8080/api/editprofile",
+      url: "http://localhost:8080/api/editprofile", /* use a relative path here for routes in your app */
       data: {
         firstName: firstName,
         lastName: lastName,
@@ -89,7 +97,8 @@ $(document).ready(function() {
       .catch(handleLoginErr);
   }
 
-  function handleLoginErr(err) {
+  function handleLoginErr(err) { /* is this misnamed here? It looks like this is 
+    being used for a profile update not for a login? */
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }

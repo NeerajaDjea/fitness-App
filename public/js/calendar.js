@@ -1,6 +1,7 @@
 // Client ID and API key from the Developer Console
 var CLIENT_ID = '221726329468-vltjuh7e0j667gi0vi9kvtkpsc091jdp.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyCf3cD-4d31Q_FqTwsz2BWT0-OWsMqoHLQ';
+/* secrets should be in your .env file so as not to compromise your security */
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
@@ -157,7 +158,7 @@ function listUpcomingEvents() {
     });
 }
 
-function addNewEvent(title, dateTime) {
+function addNewEvent(title, dateTime) { /* Would having startDateTime and endDateTime be better */
     if (!title) {
         return
     }
@@ -192,7 +193,7 @@ function addNewEvent(title, dateTime) {
     })
 }
 
-addNewEvent(false);
+addNewEvent(false); /* what does this code do? It looks like it won't do anything... */
 
 // 
 // url encode the email

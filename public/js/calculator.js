@@ -17,9 +17,17 @@ calculate.addEventListener("click", function() {
   console.log(gender.value);
   var activity = document.querySelector("#Activity").value;
   var age = parseInt(document.querySelector("#age").value);
-  var height = parseInt(document.querySelector("#height").value) / 2.5;
+  var height = parseInt(document.querySelector("#height").value) / 2.5; /* what do these numbers mean?
+   Sometimes it can be useful to define constants in a variable. That way your future self or other developers 
+   will know (from the well named variable) what the number represents 
+   e.g const cmInAnInch = 2.5
+   const poundsInAKg = 2.2
+   */
   var weight = parseInt(document.querySelector("#weight").value) * 2.2;
 
+   /* likewise with 66, 8.3, 12.9 and 6.8. What do they mean?
+     Having them in variables also means that you can reuse that variable in all 4 lines below.
+     Then in the future you only need to edit that number once rather than 4 times.  */
   var bmr1 = Math.floor(
     66 + 8.3 * weight + 12.9 * height - (6.8 * age) / activity
   );
