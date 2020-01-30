@@ -4,8 +4,18 @@ var path = require("path");
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
+/* As a quick mention for this whole file, it is probably better to keep all of the 
+public html files that you are going to serve in a seperate folder to the public one 
+(on the same level as public) and call it something like "views". Otherwise the html
+files will get served as static files with the css and js, as well as being sent via the
+html routes in this file. */
+
+/* also another aside which Tom mentioned ages ago. If you aren't using a parameter of a 
+callback function (like req in many of the routes below) you can prefix it with an underscore
+like _req to indicate that it is not being used. (vscode likes this and changes it's colour :) */
+
 module.exports = function(app) {
-  app.get("/", function(req, res) {
+  app.get("/", function(_req, res) {/* underscore added here to req as example */
     // Sends user to the splash page
     res.sendFile(path.join(__dirname, "../public/splash.html"));
   });
