@@ -1,5 +1,5 @@
 const config = {
-        "development": {
+    "development": {
         "username": "root",
         "password": process.env.DB_PASS,
         "database": "fitness_db",
@@ -14,11 +14,12 @@ const config = {
         "dialect": "mysql"
     },
     "production": {
-        "username": "root",
-        "password": process.env.DB_PASS,
-        "database": "database_production",
-        "host": process.env.DB_HOST,
-        "dialect": "mysql"
+        "username": "lvg3t2wj9a3s0jrg",
+        "password": process.env.JAWSDB_PASSWORD,
+        "database": "p1mi70ykglr6twgv",
+        "host": "s3lkt7lynu0uthj8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+        "dialect": "mysql",
+        "port": 3306
     }
 }
 
