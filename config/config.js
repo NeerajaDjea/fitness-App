@@ -1,7 +1,7 @@
 const config = {
     "development": {
         "username": "root",
-        "password": process.env.DB_PASS,
+        "password": "Pikachu2097",
         "database": "fitness_db",
         "host": process.env.DB_HOST,
         "dialect": "mysql"
