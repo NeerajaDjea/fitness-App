@@ -6,6 +6,7 @@ const passport = require("./config/passport");
 
 const cookieParser = require('cookie-parser');
 // const cookieSession = require('cookie-session');
+const compression = require('compression');
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
@@ -26,6 +27,8 @@ app.use(cookieParser());
 //   name: 'user',
 //   keys: ['123']
 // }));
+
+app.use(compression());
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
