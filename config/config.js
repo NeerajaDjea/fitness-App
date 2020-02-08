@@ -14,10 +14,10 @@ const config = {
         "dialect": "mysql"
     },
     "production": {
-        "username": "lvg3t2wj9a3s0jrg",
+        "username": "c51l8an7uz4txw57",
         "password": process.env.JAWSDB_PASSWORD,
-        "database": "p1mi70ykglr6twgv",
-        "host": "s3lkt7lynu0uthj8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+        "database": "lydufmhig279n4ck",
+        "host": "l9dwvv6j64hlhpul.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect": "mysql",
         "port": 3306
     }
