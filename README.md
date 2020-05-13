@@ -1,5 +1,6 @@
 <h3><b>Project 2: Fitpoint (Fitness Application)</b></h3>
 
+https://hidden-plateau-00466.herokuapp.com/
 <b>Fitpoint</b> is a web application with the aim to allow users to track their weight loss progress and fitness goals.
 The application has several features;
 
